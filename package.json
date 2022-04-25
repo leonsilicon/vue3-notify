@@ -1,0 +1,55 @@
+{
+	"name": "vue3-notify",
+	"version": "0.0.0",
+	"description": "Vue 3 Notification library",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/leonzalion/vue3-notify.git"
+	},
+	"homepage": "https://github.com/leonzalion/vue3-notify#readme",
+	"author": {
+		"name": "Leon Si",
+		"email": "contact@leonzalion.com",
+		"url": "https://leonzalion.com"
+	},
+	"type": "module",
+	".": {
+		"import": "./vue3-notify.es.js",
+		"require": "./vue3-notify.umd.js"
+	},
+	"scripts": {
+		"preinstall": "pnpm build",
+		"prepare": "lion-git-hooks",
+		"build": "node-ts ./scripts/build.ts",
+		"start": "node-ts ./src/index.ts",
+		"test": "vitest run",
+		"lint": "eslint --cache --fix .",
+		"prettier": "prettier --write .",
+		"tc": "tsc --noEmit"
+	},
+	"devDependencies": {
+		"@babel/types": "^7.17.0",
+		"@leonzalion/configs": "^1.2.30",
+		"@types/node": "^17.0.26",
+		"@vitejs/plugin-vue": "^2.3.1",
+		"@vue/runtime-core": "^3.2.33",
+		"@vue/test-utils": "^2.0.0-rc.21",
+		"desm": "^1.2.0",
+		"eslint-define-config": "^1.4.0",
+		"execa": "^6.1.0",
+		"happy-dom": "^2.55.0",
+		"lion-system": "^1.3.20",
+		"typescript": "^4.6.3",
+		"vite": "^2.9.5",
+		"vite-plugin-dts": "^1.1.1",
+		"vite-plugin-js-imports": "^1.1.1",
+		"vitest": "^0.10.0",
+		"vue": "^3.2.33",
+		"vue-tsc": "^0.34.10"
+	},
+	"dependencies": {
+		"@sindresorhus/is": "^4.6.0",
+		"mitt": "^3.0.0"
+	}
+}
