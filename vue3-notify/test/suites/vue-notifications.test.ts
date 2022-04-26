@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -8,13 +7,11 @@ describe('Notifications', () => {
 	it('has correct default props', () => {
 		const wrapper = mount(Notifications);
 		const props = wrapper.props();
+
 		expect(props.width).toEqual(300);
 		expect(props.reverse).toEqual(false);
 		expect(props.position).toStrictEqual(['top', 'right']);
 		expect(props.classes).toEqual('vue-notification');
-		expect(props.animationType).toEqual('css');
-		expect(props.animation.enter).toBeDefined();
-		expect(props.animation.leave).toBeDefined();
 		expect(props.speed).toEqual(300);
 		expect(props.duration).toEqual(3000);
 		expect(props.delay).toEqual(0);
@@ -269,9 +266,10 @@ describe('Notifications', () => {
 	});
 
 	describe('when ignoreDuplicates is on', async () => {
-		const wrapper = mount(Notifications);
-		await wrapper.setData({
-			ignoreDuplicates: true,
+		const wrapper = mount(Notifications, {
+			props: {
+				ignoreDuplicates: true,
+			},
 		});
 
 		it('adds unique item to list', () => {
@@ -320,7 +318,7 @@ describe('Notifications', () => {
 
 describe('rendering', () => {
 	describe('notification wrapper', () => {
-		it('adds notification item with correct title and text', () => {
+		it('adds notification item with correct title and text', async () => {
 			const wrapper = mount(Notifications);
 
 			const event = {
@@ -331,20 +329,19 @@ describe('rendering', () => {
 
 			wrapper.vm.addItem(event);
 
-			wrapper.vm.$nextTick(() => {
-				const notifications = wrapper.findAll('.vue-notification-wrapper');
+			await wrapper.vm.$nextTick();
+			const notifications = wrapper.findAll('.vue-notification-wrapper');
 
-				expect(notifications.length).toEqual(1);
+			expect(notifications.length).toEqual(1);
 
-				const title = wrapper.find('.notification-title').text();
-				expect(title).toEqual('Title');
+			const title = wrapper.find('.notification-title').text();
+			expect(title).toEqual('Title');
 
-				const text = wrapper.find('.notification-content').text();
-				expect(text).toEqual('Text');
-			});
+			const text = wrapper.find('.notification-content').text();
+			expect(text).toEqual('Text');
 		});
 
-		it('adds notification with correct inline styling', (done) => {
+		it('adds notification with correct inline styling', async () => {
 			const wrapper = mount(Notifications);
 
 			const event = {
@@ -355,18 +352,16 @@ describe('rendering', () => {
 
 			wrapper.vm.addItem(event);
 
-			wrapper.vm.$nextTick(() => {
-				const notification = wrapper.get<HTMLElement>(
-					'.vue-notification-wrapper'
-				);
+			await wrapper.vm.$nextTick();
 
-				expect(notification.element.style.transition).toEqual('all 300ms');
+			const notification = wrapper.get<HTMLElement>(
+				'.vue-notification-wrapper'
+			);
 
-				done();
-			});
+			expect(notification.element.style.transition).toEqual('all 300ms');
 		});
 
-		it('adds the event type as css class body', (done) => {
+		it('adds the event type as css class body', async () => {
 			const wrapper = mount(Notifications);
 
 			const event = {
@@ -377,14 +372,11 @@ describe('rendering', () => {
 
 			wrapper.vm.addItem(event);
 
-			wrapper.vm.$nextTick(() => {
-				const notification = wrapper.get('.vue-notification-wrapper > div');
+			await wrapper.vm.$nextTick();
+			const notification = wrapper.get('.vue-notification-wrapper > div');
 
-				expect(notification.classes()).toContain('vue-notification');
-				expect(notification.classes()).toContain('success');
-
-				done();
-			});
+			expect(notification.classes()).toContain('vue-notification');
+			expect(notification.classes()).toContain('success');
 		});
 
 		it('has correct default body classes', async () => {
@@ -403,7 +395,7 @@ describe('rendering', () => {
 			expect(notification.classes()).toContain('vue-notification');
 		});
 
-		it('body classes can be customized via prop', async (done) => {
+		it('body classes can be customized via prop', async () => {
 			const props = {
 				classes: 'pizza taco-sushi',
 			};

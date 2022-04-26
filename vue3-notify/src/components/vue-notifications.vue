@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { StyleValue } from 'vue';
 import { onMounted } from 'vue';
 
 import type {
@@ -28,20 +29,20 @@ const {
 	closeOnClick = true,
 	pauseOnHover = false,
 } = defineProps<{
-	group: string;
-	width: number | string;
-	reverse: boolean;
-	position: string | string[];
-	classes: string;
-	animationName: string;
-	speed: number;
-	cooldown: number;
-	duration: number;
-	delay: number;
-	max: number;
-	ignoreDuplicates: boolean;
-	closeOnClick: boolean;
-	pauseOnHover: boolean;
+	group?: string;
+	width?: number | string;
+	reverse?: boolean;
+	position?: string | string[];
+	classes?: string;
+	animationName?: string;
+	speed?: number;
+	cooldown?: number;
+	duration?: number;
+	delay?: number;
+	max?: number;
+	ignoreDuplicates?: boolean;
+	closeOnClick?: boolean;
+	pauseOnHover?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -64,7 +65,7 @@ let list = $ref<NotificationItemExtended[]>([]);
 let timerControl = $ref<Timer | undefined>();
 
 const actualWidth = $computed(() => parseNumericValue(width));
-const styles = $computed(() => {
+const styles = $computed((): StyleValue => {
 	const { x, y } = listToDirection(position);
 	const width = actualWidth.value;
 	const suffix = actualWidth.type;
@@ -127,7 +128,7 @@ function addItem(event: NotificationsOptions = {}): void {
 		return;
 	}
 
-	if (event.clean || event.clear) {
+	if (event.clear) {
 		destroyAll();
 		return;
 	}
@@ -239,13 +240,18 @@ function destroyAll(): void {
 function clean() {
 	list = list.filter((v) => v.state !== STATE.DESTROYED);
 }
+
+defineExpose({
+	addItem,
+	list: list as NotificationItemExtended[],
+});
 </script>
 
 <template>
 	<div class="vue-notification-group" :style="styles">
 		<transition-group tag="span" :name="animationName">
 			<div
-				v-for="item in active"
+				v-for="item in activeNotifications"
 				:key="item.id"
 				class="vue-notification-wrapper"
 				:style="notifyWrapperStyle(item)"

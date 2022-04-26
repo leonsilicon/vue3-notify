@@ -7,6 +7,7 @@ module.exports = defineConfig({
 		project: path.resolve(__dirname, 'tsconfig.eslint.json'),
 		extraFileExtensions: ['vue'],
 	},
+	ignorePatterns: ['vue-notifications.vue.d.ts'],
 	rules: {
 		'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
 	},

@@ -1,11 +1,19 @@
 import vue from '@vitejs/plugin-vue';
 import { join } from 'desm';
+import distGitkeep from 'rollup-plugin-dist-gitkeep';
+import postcss from 'rollup-plugin-postcss';
 import dts from 'vite-plugin-dts';
 import jsImports from 'vite-plugin-js-imports';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-	plugins: [vue({ reactivityTransform: true }), jsImports(), dts()],
+	plugins: [
+		vue({ reactivityTransform: true }),
+		postcss({ }),
+		jsImports(),
+		dts(),
+		distGitkeep(),
+	],
 	resolve: {
 		alias: {
 			'~': join(import.meta.url, './src'),
@@ -16,8 +24,8 @@ export default defineConfig({
 		lib: {
 			entry: join(import.meta.url, './src/index.ts'),
 			name: 'VueNotifications',
-			formats: ['es'],
-			fileName: 'vue-notifications',
+			formats: ['es', 'cjs'],
+			fileName: (format) => (format === 'cjs' ? 'index.cjs' : 'index.js'),
 		},
 		rollupOptions: {
 			external: ['vue'],

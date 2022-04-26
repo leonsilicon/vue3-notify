@@ -7,7 +7,6 @@ export interface NotificationsOptions {
 	duration?: number;
 	speed?: number;
 	data?: unknown;
-	clean?: boolean;
 	clear?: boolean;
 	ignoreDuplicates?: boolean;
 }
