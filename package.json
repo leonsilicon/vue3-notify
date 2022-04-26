@@ -4,6 +4,7 @@
 	"type": "module",
 	"scripts": {
 		"dev:demo": "pnpm run dev --filter=./demo",
+		"build:demo": "pnpm run build --filter=./demo",
 		"prepare": "lion-git-hooks",
 		"test": "pnpm recursive run test",
 		"lint": "pnpm recursive run lint",
