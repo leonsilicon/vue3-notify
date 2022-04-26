@@ -40,6 +40,8 @@ importers:
   vue3-notify:
     specifiers:
       '@babel/types': ^7.17.0
+      '@rollup/plugin-alias': ^3.1.9
+      '@rollup/plugin-typescript': ^8.3.2
       '@sindresorhus/is': ^4.6.0
       '@vitejs/plugin-vue': ^2.3.1
       '@vue/runtime-core': ^3.2.33
@@ -49,8 +51,11 @@ importers:
       happy-dom: ^2.55.0
       mitt: ^3.0.0
       postcss: ^8.4.12
+      rollup: ^2.70.2
+      rollup-plugin-deps-external: ^0.2.1
       rollup-plugin-dist-gitkeep: ^0.1.0
       rollup-plugin-postcss: ^4.0.2
+      tslib: ^2.4.0
       typescript: ^4.6.3
       vite: ^2.9.5
       vite-plugin-dts: ^1.1.1
@@ -64,6 +69,8 @@ importers:
       rollup-plugin-dist-gitkeep: 0.1.0
     devDependencies:
       '@babel/types': 7.17.0
+      '@rollup/plugin-alias': 3.1.9_rollup@2.70.2
+      '@rollup/plugin-typescript': 8.3.2_056aba5e56e0ab5307259a29131f3fbe
       '@vitejs/plugin-vue': 2.3.1_vite@2.9.5+vue@3.2.33
       '@vue/runtime-core': 3.2.33
       '@vue/test-utils': 2.0.0-rc.21_vue@3.2.33
@@ -71,7 +78,10 @@ importers:
       execa: 6.1.0
       happy-dom: 2.55.0
       postcss: 8.4.12
+      rollup: 2.70.2
+      rollup-plugin-deps-external: 0.2.1
       rollup-plugin-postcss: 4.0.2_postcss@8.4.12
+      tslib: 2.4.0
       typescript: 4.6.3
       vite: 2.9.5
       vite-plugin-dts: 1.1.1_vite@2.9.5
@@ -431,6 +441,16 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
+    dev: true
+
+  /@rollup/plugin-alias/3.1.9_rollup@2.70.2:
+    resolution: {integrity: sha512-QI5fsEvm9bDzt32k39wpOwZhVzRcL5ydcffUHMyLVaVaLeC70I8TJZ17F1z1eMoLu4E/UOcH9BWVkKpIKdrfiw==}
+    engines: {node: '>=8.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0
+    dependencies:
+      rollup: 2.70.2
+      slash: 3.0.0
     dev: true
 
   /@rollup/plugin-commonjs/21.1.0_rollup@2.70.2:
@@ -5778,6 +5798,13 @@ packages:
       is-file-esm: 1.0.0
       pkg-up: 4.0.0
       type-fest: 2.12.2
+    dev: true
+
+  /rollup-plugin-deps-external/0.2.1:
+    resolution: {integrity: sha512-dFphOeqHbOD0zDUv375+a2lXKj2NkTG9jqXINHxXmQO/H8MuQoYYxr/EiZ0mP7hOofGPl9nMnk/8EHH5+/3fhA==}
+    dependencies:
+      read-pkg: 7.1.0
+      resolve: 1.22.0
     dev: true
 
   /rollup-plugin-dist-gitkeep/0.1.0:
