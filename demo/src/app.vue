@@ -13,7 +13,7 @@ const ignoreDuplicates = $ref(false);
 const closeOnClick = $ref(true);
 const pauseOnHover = $ref(false);
 const text = $ref('This is a notification!');
-const clean = $ref(false);
+const clear = $ref(false);
 const title = $ref('Notification Title');
 const type = $ref<'warn' | 'error' | 'success' | undefined>();
 
@@ -21,7 +21,7 @@ function createNotification() {
 	notify({
 		text,
 		duration,
-		clean,
+		clear,
 		speed,
 		ignoreDuplicates,
 		title,

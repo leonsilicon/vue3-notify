@@ -1,4 +1,4 @@
-import type VueNotifications from '~/components/vue-notifications.vue';
+import type VueNotifications from '~/components/vue-notifications.vue.js';
 
 import type { notify } from '../utils/notify.js';
 

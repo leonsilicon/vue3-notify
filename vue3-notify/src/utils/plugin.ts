@@ -1,6 +1,6 @@
 import type { App, Plugin } from 'vue';
 
-import Notifications from '~/components/vue-notifications.vue';
+import Notifications from '~/components/vue-notifications.vue.js';
 
 import type { NotificationsPluginOptions } from '../types/plugin.js';
 import { notify } from './notify.js';

@@ -1,4 +1,3 @@
-import 'vue3-notify/style.css';
 import 'virtual:windi.css';
 
 import { createApp } from 'vue';
