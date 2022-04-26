@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 

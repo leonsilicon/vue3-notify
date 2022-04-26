@@ -9,6 +9,29 @@ module.exports = defineConfig({
 	},
 	ignorePatterns: ['vue-notifications.vue.d.ts'],
 	rules: {
-		'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+		'import/no-extraneous-dependencies': [
+			'error',
+			{
+				devDependencies: true,
+				packageDir: [__dirname, path.resolve(__dirname, '..')],
+			},
+		],
 	},
+	overrides: [
+		{
+			files: ['src'],
+			rules: {
+				'import/extensions': [
+					'error',
+					'always',
+					{
+						pattern: {
+							vue: 'never',
+						},
+						ignorePackages: true,
+					},
+				],
+			},
+		},
+	],
 });
