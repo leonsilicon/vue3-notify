@@ -8,7 +8,8 @@
 		"test": "pnpm recursive run test",
 		"lint": "pnpm recursive run lint",
 		"prettier": "pnpm recursive run prettier",
-		"tc": "pnpm recursive run tc"
+		"tc": "pnpm recursive run tc",
+		"release": "pnpm run release --filter=./vue3-notify"
 	},
 	"devDependencies": {
 		"@leonzalion/configs": "^1.2.31",
