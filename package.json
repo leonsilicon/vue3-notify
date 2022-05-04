@@ -3,14 +3,14 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"dev:demo": "pnpm run dev --filter=./demo",
-		"build:demo": "pnpm run build --filter=./demo",
+		"dev:demo": "pnpm --filter=./demo run dev",
+		"build:demo": "pnpm --filter=./demo run build",
 		"prepare": "lion-git-hooks",
 		"test": "pnpm recursive run test",
 		"lint": "pnpm recursive run lint",
 		"prettier": "pnpm recursive run prettier",
 		"tc": "pnpm recursive run tc",
-		"release": "pnpm run release --filter=./vue3-notify"
+		"release": "pnpm --filter=./vue3-notify run release"
 	},
 	"devDependencies": {
 		"@leonzalion/configs": "^1.4.4",
