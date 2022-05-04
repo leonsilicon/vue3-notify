@@ -156,7 +156,8 @@ function addItem(event: NotificationsOptions = {}): void {
 		data,
 	};
 
-	if (duration >= 0) {
+	// If duration is 0, we don't auto-close the notification.
+	if (duration > 0) {
 		timerControl = new Timer(
 			() => {
 				destroy(item);
