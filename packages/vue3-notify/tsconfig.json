@@ -1,5 +1,5 @@
 {
-	"extends": "@leonzalion/configs/tsconfig.json",
+	"extends": "lionconfig/tsconfig.json",
 	"compilerOptions": {
 		"outDir": "dist",
 		"allowJs": true,
@@ -9,5 +9,5 @@
 		},
 		"types": ["vue/ref-macros"]
 	},
-	"include": ["./src"]
+	"include": ["./src", "./typings"]
 }
