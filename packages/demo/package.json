@@ -1,5 +1,5 @@
 {
-  "name": "demo",
+  "name": "@vue3-notify/demo",
   "type": "module",
   "version": "0.0.0",
   "scripts": {

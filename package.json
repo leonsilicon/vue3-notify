@@ -1,5 +1,5 @@
 {
-	"name": "vue3-notify-monorepo",
+	"name": "@vue3-notify/monorepo",
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
@@ -9,7 +9,7 @@
 		"test": "pnpm recursive run test",
 		"lint": "pnpm recursive run lint",
 		"prettier": "pnpm recursive run prettier",
-		"release": "pnpm --filter=./vue3-notify run release",
+		"release": "pnpm --filter=vue3-notify run release",
 		"typecheck": "pnpm recursive run tc"
 	},
 	"devDependencies": {
