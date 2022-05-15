@@ -1,7 +1,7 @@
 {
 	"name": "vue3-notify",
 	"type": "module",
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"description": "Vue 3 Notification library",
 	"license": "MIT",
 	"author": {
