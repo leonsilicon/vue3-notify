@@ -3,14 +3,14 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"dev:demo": "pnpm --filter=./demo run dev",
-		"build:demo": "pnpm --filter=./demo run build",
+		"dev:demo": "pnpm --filter=@vue3-notify/demo run dev",
+		"build:demo": "pnpm --filter=@vue3-notify/demo run build",
 		"prepare": "lion-git-hooks",
 		"test": "pnpm recursive run test",
 		"lint": "pnpm recursive run lint",
 		"prettier": "pnpm recursive run prettier",
 		"release": "pnpm --filter=vue3-notify run release",
-		"typecheck": "pnpm recursive run tc"
+		"typecheck": "pnpm recursive run typecheck"
 	},
 	"devDependencies": {
 		"lionconfig": "^1.6.2",
