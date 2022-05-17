@@ -35,8 +35,8 @@
 		"mitt": "^3.0.0"
 	},
 	"devDependencies": {
-		"@babel/types": "^7.17.0",
-		"@vitejs/plugin-vue": "^2.3.1",
+		"@babel/types": "^7.17.12",
+		"@vitejs/plugin-vue": "^2.3.3",
 		"@vue/runtime-core": "^3.2.33",
 		"@vue/test-utils": "^2.0.0-rc.21",
 		"compile-vue-sfc": "^0.2.0",
@@ -44,11 +44,11 @@
 		"execa": "^6.1.0",
 		"happy-dom": "^2.55.0",
 		"rollup-plugin-js-imports": "^1.2.1",
-		"typescript": "^4.6.3",
-		"vite": "^2.9.5",
-		"vitest": "^0.10.0",
+		"typescript": "^4.6.4",
+		"vite": "^2.9.9",
+		"vitest": "^0.10.5",
 		"vue": "^3.2.33",
-		"vue-tsc": "^0.34.10"
+		"vue-tsc": "^0.34.15"
 	},
 	"publishConfig": {
 		"directory": "dist"
