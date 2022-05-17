@@ -1,7 +1,7 @@
 import { compileVueSFC } from 'compile-vue-sfc';
 import { join } from 'desm';
 import { execaCommandSync as exec } from 'execa';
-import { chProjectDir, copyPackageFiles, rmDist } from 'lion-system';
+import { chProjectDir, copyPackageFiles, rmDist } from 'lionconfig';
 
 chProjectDir(import.meta.url);
 rmDist();
